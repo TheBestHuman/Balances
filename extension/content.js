@@ -25,18 +25,8 @@ var replaceTextInNode = function(parentNode){
                 var newNode = document.createElement("fake");
                 var URI = URIs[Math.floor(Math.random()*URIs.length)];
 
-                var style = window.getComputedStyle(node.parentNode);
-                var textDecoration = style.getPropertyValue("text-decoration");
-                if(!textDecoration)
-                    textDecoration = "inherit";
-                var font = style.getPropertyValue("font");
-                if(!font)
-                    font = "inherit";
-                var display = style.getPropertyValue("display");
-                if(!display)
-                    display = "inherit";
 
-                newNode.innerHTML = node.data.replace(searchString, "<a style='text-decoration:inherit;font:inherit;display:inherit' href='" +  URI + "'>$1</a>");
+                newNode.innerHTML = node.data.replace(searchString, "<a style='text-decoration:inherit;font:inherit;' href='" +  URI + "'>$1</a>");
 
                 parentNode.replaceChild(newNode, node);
             }
